@@ -1,5 +1,5 @@
-name: Python Pylint Github Action
-description: 'Pylint Github Action running on python slim docker image'
+name: Python Pytest Github Action
+description: 'Pytest Github Action running on python slim docker image'
 inputs:
   package_name: 
     description: 'package name'
@@ -9,11 +9,11 @@ inputs:
     required: false
     default: score
 outputs:
-  pylint-report:
-    description: 'Summary or just score from pylint'
+  pytest-report:
+    description: 'Summary or just score from pytest'
 branding:
   icon: box
-  color: gray-dark
+  color: red
 runs-on: ubuntu-latest
 runs:
   using: 'docker'
@@ -21,6 +21,6 @@ runs:
 steps:
 - uses: actions/checkout@master
 - name: Python Pylint Github Action
-  uses: fylein/python-pylint-github-action@master
+  uses: benstear/biopypir-pytest-action@master
   with:
-    args: pylint --help
+    args: pytest --help
