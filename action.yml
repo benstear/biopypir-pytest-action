@@ -1,0 +1,26 @@
+name: Python Pylint Github Action
+description: 'Pylint Github Action running on python slim docker image'
+inputs:
+  package_name: 
+    description: 'package name'
+    required: true
+  verbosity:
+    description: 'whole report or just score'
+    required: false
+    default: score
+outputs:
+  pylint-report:
+    description: 'Summary or just score from pylint'
+branding:
+  icon: box
+  color: gray-dark
+runs-on: ubuntu-latest
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+steps:
+- uses: actions/checkout@master
+- name: Python Pylint Github Action
+  uses: fylein/python-pylint-github-action@master
+  with:
+    args: pylint --help
